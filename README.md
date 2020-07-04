@@ -34,10 +34,10 @@ The sample app is based on a very simple webstore where users can login, and int
 - Create new Amazon Elastic Container Registry (Amazon ECR) (in the same region where amplify app will be deployed) and push payment application to container registry.
 
   ```bash
-  git clone git@github.com:<username>/appsync-refarch-microserviceaccesslayer.git
+  git clone git@github.com:<username>/aws-appsync-refarch-microservices.git
 
 
-  cd appsync-refarch-microserviceaccesslayer/paymentapp
+  cd aws-appsync-refarch-microservices/paymentapp
   REPO=$(aws ecr create-repository --repository-name paymentapp --image-tag-mutability IMMUTABLE  --output text --query repository.repositoryUri)
 
   echo '# get-login'
@@ -92,7 +92,7 @@ The sample app is based on a very simple webstore where users can login, and int
 2. You have already cloned the repo in previous step. Change directory to application root and install dependencies
 
 ```bash
-cd appsync-refarch-microserviceaccesslayer && npm install
+cd aws-appsync-refarch-microservices && npm install
 ```
 
 3. Select your app in amplify console. All Apps -> aws-appsync-refarch-microservices -> Backend Environment -> (extend) Edit backend at the bottom.
