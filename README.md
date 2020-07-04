@@ -57,6 +57,10 @@ The sample app is based on a very simple webstore where users can login, and int
 
   echo '# tag this app as version 1'
   docker tag python/paymentapp:v1 ${REPO}:v1
+  
+  echo '# docker login'
+  PASS=$(aws ecr get-login-password --profile burner)
+  docker login -u AWS -p ${PASS} ${REPO} 
 
   echo '# docker push'
   docker push ${REPO}:v1
