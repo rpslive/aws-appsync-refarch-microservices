@@ -35,13 +35,19 @@ The sample app is based on a very simple webstore where users can login, and int
 
   ```bash
   git clone git@github.com:<username>/aws-appsync-refarch-microservices.git
+  
+  aws configure --profile burner
+  AWS Access Key ID [None]: ****ID
+  AWS Secret Access Key [None]: ***Key
+  Default region name [None]: us-east-2
+  Default output format [None]: json
 
 
   cd aws-appsync-refarch-microservices/paymentapp
-  REPO=$(aws ecr create-repository --repository-name paymentapp --image-tag-mutability IMMUTABLE  --output text --query repository.repositoryUri)
+  REPO=$(aws ecr create-repository --profile burner --repository-name paymentapp --image-tag-mutability IMMUTABLE  --output text --query repository.repositoryUri)
 
   echo '# get-login'
-  $(aws ecr get-login --no-include-email)
+  $(aws ecr get-login --profile burner --no-include-email)
 
   echo '# repo'
   echo ${REPO}
